@@ -76,6 +76,7 @@ public class TicTacToeModel {
         /* Initialize board by filling every square with empty marks */
         
         // INSERT YOUR CODE HERE
+        System.out.print(board);
         
     }
 	
