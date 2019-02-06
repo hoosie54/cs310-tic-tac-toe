@@ -21,9 +21,17 @@ public class TicTacToeView {
         /* Prompt the player to enter the row and the column of their next move.
            Return as a TicTacToeMove object. */
         
-        // INSERT YOUR CODE HERE
-
-        return null; // remove this line later!
+        if ( isXTurn == true ) {
+            System.out.println("Player 1 (X) Move: ");
+        }
+        if ( isXTurn == false ) {
+            System.out.println("Player 2 (O) Move: ");
+        }
+        System.out.println("Enter the row and column numbers, separated by a space: ");
+        int row = keyboard.nextInt();
+        int col = keyboard.nextInt();
+        TicTacToeMove move = new TicTacToeMove(row, col);
+        return move;
 
     }
 
