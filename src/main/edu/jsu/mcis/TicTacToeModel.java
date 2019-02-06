@@ -97,21 +97,20 @@ public class TicTacToeModel {
         
         if ( isValidSquare(row, col) && !isSquareMarked(row, col) ) {
             
-            if ( xTurn == true ){
+            if ( xTurn ){
                 board[row][col] = Mark.X;
-                xTurn = false;
             }
-            if ( xTurn == false) {
+            else if ( !xTurn ) {
                 board[row][col] = Mark.O;
-                xTurn = true;
             }
             
+            xTurn = !xTurn;
             made = true;
-            return true;
+            return made;
             
         }
         
-        return false; 
+        return made; 
         
     }
 	
@@ -216,38 +215,30 @@ public class TicTacToeModel {
         }
         
         // check diagonal left to right
+        counter = 0;
         for ( int i = 0; i < width; ++i ) {
             
-            counter = 0;
-            
-            for ( int j = 0; j < width; ++j ) {
-                
-                if ( board[i][i].equals(mark) ){
-                    counter++;
-                }
-                if ( counter == width ) {
-                    win = true;
-                }
-                
+            if ( board[i][i].equals(mark) ){
+                counter++;
             }
-            
+            if ( counter == width ) {
+                win = true;
+            }
+              
         }
         
         // check diagonal right to left
+        counter = 0;
         for ( int i = 0; i < width; ++i ) {
-            
-            counter = 0;
-            
-            for ( int j = 0; j < width; ++j ) {
                 
-                if ( board[i][width - i - 1].equals(mark) ){
-                    counter++;
-                }
-                if ( counter == width ) {
-                    win = true;
-                }
-                
+            if ( board[i][width - i - 1].equals(mark) ){
+                counter++;
             }
+            if ( counter == width ) {
+                win = true;
+            }
+                
+            
             
         }
         
