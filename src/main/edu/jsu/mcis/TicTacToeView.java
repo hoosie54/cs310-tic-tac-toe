@@ -27,7 +27,7 @@ public class TicTacToeView {
         if ( isXTurn == false ) {
             System.out.println("Player 2 (O) Move: ");
         }
-        System.out.println("Enter the row and column numbers, separated by a space: ");
+        System.out.print("Enter the row and column numbers, separated by a space: ");
         int row = keyboard.nextInt();
         int col = keyboard.nextInt();
         TicTacToeMove move = new TicTacToeMove(row, col);

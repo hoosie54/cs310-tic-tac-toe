@@ -29,7 +29,8 @@ public class TicTacToeController {
             
             view.showBoard(model.toString());
             TicTacToeMove nextMove = view.getNextMove(model.isXTurn());
-            model.makeMark(nextMove.getRow(), nextMove.getCol());
+            boolean makeMove = model.makeMark(nextMove.getRow(), nextMove.getCol());
+            System.out.println(nextMove.getRow() + " " + nextMove.getCol());
         
         }
         

@@ -93,7 +93,9 @@ public class TicTacToeModel {
            toggle "xTurn" from true to false (or vice-versa) to switch to the
            other player before returning TRUE.  Otherwise, return FALSE. */
         
-        if ( isValidSquare(row, col) && isSquareMarked(row, col) ) {
+        boolean made = false;
+        
+        if ( isValidSquare(row, col) && !isSquareMarked(row, col) ) {
             
             if ( xTurn == true ){
                 board[row][col] = Mark.X;
@@ -104,6 +106,7 @@ public class TicTacToeModel {
                 xTurn = true;
             }
             
+            made = true;
             return true;
             
         }
@@ -177,11 +180,11 @@ public class TicTacToeModel {
         boolean win = false;
         
         // check row for win
-        for ( int i = 0; i < width; i++ ) {
+        for ( int i = 0; i < width; ++i ) {
             
             counter = 0;
             
-            for ( int j = 0; j < width; j++ ) {
+            for ( int j = 0; j < width; ++j ) {
                 
                 if ( board[i][j].equals(mark) ){
                     counter++;
@@ -195,11 +198,11 @@ public class TicTacToeModel {
         }
         
         // check column for win
-        for ( int i = 0; i < width; i++ ) {
+        for ( int i = 0; i < width; ++i ) {
             
             counter = 0;
             
-            for ( int j = 0; j < width; j++ ) {
+            for ( int j = 0; j < width; ++j ) {
                 
                 if ( board[j][i].equals(mark) ){
                     counter++;
@@ -213,11 +216,11 @@ public class TicTacToeModel {
         }
         
         // check diagonal left to right
-        for ( int i = 0; i < width; i++ ) {
+        for ( int i = 0; i < width; ++i ) {
             
             counter = 0;
             
-            for ( int j = 0; j < width; j++ ) {
+            for ( int j = 0; j < width; ++j ) {
                 
                 if ( board[i][i].equals(mark) ){
                     counter++;
@@ -231,11 +234,11 @@ public class TicTacToeModel {
         }
         
         // check diagonal right to left
-        for ( int i = 0; i < width; i++ ) {
+        for ( int i = 0; i < width; ++i ) {
             
             counter = 0;
             
-            for ( int j = 0; j < width; j++ ) {
+            for ( int j = 0; j < width; ++j ) {
                 
                 if ( board[i][width - i - 1].equals(mark) ){
                     counter++;
